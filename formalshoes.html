@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OVERSIZED TSHIRTS</title>
+    <style>
+         /* Container for Product Cards */
+         .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .product-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card h3 {
+            padding: 10px;
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        .product-card p {
+            padding: 0 10px;
+            color: #666;
+            margin: 5px 0 15px 0;
+        }
+
+        .product-card .price {
+            padding: 0 10px 10px 10px;
+            font-size: 1.5em;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 0 0 10px 10px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .product-card button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        nav ul li .cart-button {
+            background-color: #4CAF50;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li .cart-button:hover {
+            background-color: #45a049;
+        }
+
+
+
+
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        .banner {
+            position: relative;
+            background: url('https://example.com/tshirt-banner.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        }
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .banner p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-btn:hover {
+            background-color: #c0392b;
+        }
+
+
+
+        
+
+
+
+
+        .hot-selling {
+            background-color: #ff5733; /* Bright orange-red background */
+            color: white;
+            font-size: 2rem; /* Text size */
+            font-weight: bold; /* Bold text */
+            text-transform: uppercase; /* Capitalize text */
+            padding: 15px 30px; /* Padding around the text */
+            border-radius: 8px; /* Rounded corners */
+            text-align: center; /* Center-align the text */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Drop shadow */
+            letter-spacing: 2px; /* Spacing between letters */
+            position: relative; /* For placing icon */
+            animation: pulse 1.5s infinite; /* Animation to make the text pulse */
+        }
+        
+        .hot-selling::before {
+            content: "\1F525"; /* Flame emoji (🔥) */
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            animation: flameShake 0.8s infinite ease-in-out; /* Flame shake animation */
+        }
+        
+        /* Animation to pulse the hot selling text */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Shake animation for the flame icon */
+        @keyframes flameShake {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            25% { transform: translateY(-50%) rotate(-5deg); }
+            50% { transform: translateY(-50%) rotate(5deg); }
+            75% { transform: translateY(-50%) rotate(-5deg); }
+            100% { transform: translateY(-50%) rotate(0deg); }
+        }
+        
+
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .footer-section h2 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin: 10px 0;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-section .social-icon img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+        }
+
+    </style>
+</head>
+<body>
+    <center><h1>FORMAL SHOES</h1></center>
+    <div class="container">
+        <div class="product-card">
+            <img src="fshoes1.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1299</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes1.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes2.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹899</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes2.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes3.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1399</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes3.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes4.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1699</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes4.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes5.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1899</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes5.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes6.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1799</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes6.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes7.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1399</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes7.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes8.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1899</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes8.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes9.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹2899</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes9.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes10.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹899</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes10.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes11.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹999</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes11.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes12.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹699</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes12.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes13.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹899</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes13.webp">Buy Now</button>
+        </div>
+        <div class="product-card">
+            <img src="fshoes14.webp" alt="Product 1">
+            <h3>Formal Shoes</h3>
+            <div class="price">₹1899</div>
+            <br>
+            <p>Classic can hardly ever go out of style.</p>
+            <button class="buy-now-btn" data-name="Stylish Men's Formal Shoes" data-price="₹1299" data-image="fshoes14.webp">Buy Now</button>
+        </div>
+        
+
+        
+        
+    </div>
+    <script>
+        document.querySelectorAll('.buy-now-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const price = this.getAttribute('data-price');
+                const image = this.getAttribute('data-image');
+    
+                // Store product details in localStorage
+                localStorage.setItem('productName', name);
+                localStorage.setItem('productPrice', price);
+                localStorage.setItem('productImage', image);
+    
+                // Redirect to checkout page
+                window.location.href = 'checkout.html';
+            });
+        });
+    </script>
+
+</body>
+</html>
